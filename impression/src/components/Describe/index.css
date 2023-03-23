@@ -1,4 +1,4 @@
-.StartStart {
+.DescribeDescribe {
     text-align: center;
     display: block;
     margin-left: auto;
@@ -6,6 +6,11 @@
     width: 100%;
 }
 
-.StartLink {
+.DescribeTextField {
+    align-self: center;
+    width: 50vw;
+}
+
+.DescribeLink {
     text-decoration: none;
 }

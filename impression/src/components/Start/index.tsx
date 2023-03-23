@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 function Start() {
     return (
-        <div className="Start">
-            <Link className="Link" to="/initial" >
+        <div className="StartStart">
+            <Link className="StartLink" to="/initial" >
                 <Button variant="text">Start</Button>
             </Link>
         </div>
