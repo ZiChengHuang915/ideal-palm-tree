@@ -1,16 +1,14 @@
 import React from 'react';
 import './index.css';
 import Button from '@mui/material/Button';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import Container from '@mui/material/Container';
+import { Link } from "react-router-dom";
 
 function Start() {
     return (
         <div className="Start">
-            <Button variant="text">Start</Button>
+            <Link className="Link" to="/initial" >
+                <Button variant="text">Start</Button>
+            </Link>
         </div>
     );
 }
