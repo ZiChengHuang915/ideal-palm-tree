@@ -4,17 +4,17 @@ import './index.css';
 import Stack from '@mui/material/Stack';
 import Image from '../Image';
 
-function MultiImage() {
+function MultiImage(props: {imageLink: string}) {
     return (
         <div className="MultiImageMultiImage">
             <p className="MultiImageText">Identify the original image!</p>
             <Stack direction="row" justifyContent="center"
                 alignItems="center" spacing={1}>
-                <Image />
-                <Image />
-                <Image />
-                <Image />
-                <Image />
+                <Image imageLink={props.imageLink}/>
+                <Image imageLink={props.imageLink}/>
+                <Image imageLink={props.imageLink}/>
+                <Image imageLink={props.imageLink}/>
+                <Image imageLink={props.imageLink}/>
             </Stack>
         </div>
     );

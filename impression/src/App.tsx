@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Start from './components/Start'
-import Image from './components/Image';
 import Describe from './components/Describe';
 import MultiImage from './components/MultiImage';
 import Timer from './components/Timer';
@@ -10,6 +9,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ImageCountdown from './components/ImageCountdown';
+import images from './registry.json';
 
 
 function App() {
@@ -27,21 +28,29 @@ function App() {
   // - Add highlight styling for correctness to the results
   // - create a button after results displayed to circle back to the start page
   const [description, setDescription] = useState("");
+  const [imageLink, setImageLink] = useState(null);
 
   const sendDescription = (txt: string) => {
     setDescription(txt);
     console.log(description);
   }
 
+  useEffect(() => {
+    var imageNum = Math.floor(Math.random() * parseInt(images["numEntries"])).toString();
+    setImageLink(images[imageNum as keyof object]);
+    console.log(imageNum)
+  }, []);
+
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/initial" element={<Image />} />
+          <Route path="/initial" element={<ImageCountdown duration={5} imageLink={imageLink as unknown as string}/>} />
+          <Route path="/storytime" element={<Timer duration={5} redirectLink={"/describe"}/>} />
           <Route path="/describe" element={<Describe sendDescription={sendDescription}/>} />
-          <Route path="/generating" element={<Timer/>} />
-          <Route path="/select" element={<MultiImage/>} />
+          <Route path="/generating" element={<Timer duration={10} redirectLink={"/select"}/>} />
+          <Route path="/select" element={<MultiImage imageLink={imageLink as unknown as string}/>} />
         </Routes>
       </Router>
     </div>
