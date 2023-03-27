@@ -28,7 +28,9 @@ function App() {
   // - Add highlight styling for correctness to the results
   // - create a button after results displayed to circle back to the start page
   const [description, setDescription] = useState("");
-  const [imageLink, setImageLink] = useState(null);
+  const [initialImageLink, setInitialImageLink] = useState(null);
+  const [selectImageLink, setSelectImageLink] = useState(null);
+
 
   const sendDescription = (txt: string) => {
     setDescription(txt);
@@ -37,8 +39,10 @@ function App() {
 
   useEffect(() => {
     var imageNum = Math.floor(Math.random() * parseInt(images["numEntries"])).toString();
-    setImageLink(images[imageNum as keyof object]);
-    console.log(imageNum)
+    setInitialImageLink(images[imageNum as keyof object][0]);
+    setSelectImageLink(images[imageNum as keyof object][1]);
+    console.log(imageNum);
+    console.log(process.env.REACT_APP_API_KEY);
   }, []);
 
   return (
@@ -46,11 +50,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/initial" element={<ImageCountdown duration={5} imageLink={imageLink as unknown as string}/>} />
+          <Route path="/initial" element={<ImageCountdown duration={5} imageLink={initialImageLink as unknown as string}/>} />
           <Route path="/storytime" element={<Timer duration={5} redirectLink={"/describe"}/>} />
           <Route path="/describe" element={<Describe sendDescription={sendDescription}/>} />
           <Route path="/generating" element={<Timer duration={10} redirectLink={"/select"}/>} />
-          <Route path="/select" element={<MultiImage imageLink={imageLink as unknown as string}/>} />
+          <Route path="/select" element={<MultiImage imageLink={selectImageLink as unknown as string} prompt={description} apiKey={process.env.REACT_APP_API_KEY ? process.env.REACT_APP_API_KEY : ""} />} />
         </Routes>
       </Router>
     </div>

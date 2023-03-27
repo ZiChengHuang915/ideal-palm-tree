@@ -1,5 +1,11 @@
 {
-    "numEntries": "2",
-    "0": "../../resources/1.jpg",
-    "1": "../../resources/2.jpg"
+  "numEntries": "2",
+  "0": {
+    "0": "../../resources/1-1.png",
+    "1": "../../resources/1-2.png"
+  },
+  "1": {
+    "0": "../../resources/1-1.png",
+    "1": "../../resources/1-2.png"
   }
+}
