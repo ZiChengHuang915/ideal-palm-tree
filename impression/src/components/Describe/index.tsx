@@ -17,6 +17,7 @@ function Describe(props: { sendDescription: (txt: any) => void; }) {
                 <TextField
                     className="DescribeTextField"
                     id="outlined-basic"
+                    helperText="Example: asian male with tan skin, buzz cut, stubble, and a black beanie"
                     onChange={handleTextChange}
                     variant="outlined"
                     multiline

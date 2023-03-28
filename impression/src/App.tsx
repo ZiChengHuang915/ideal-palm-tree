@@ -42,7 +42,6 @@ function App() {
     setInitialImageLink(images[imageNum as keyof object][0]);
     setSelectImageLink(images[imageNum as keyof object][1]);
     console.log(imageNum);
-    console.log(process.env.REACT_APP_API_KEY);
   }, []);
 
   return (

@@ -2,5 +2,19 @@
     display: inline-block;
     font-size: 24px;
     text-align: center;
-    width: 100vw;
+    width: 90vw;
+}
+
+.MultiImageMultiImage {
+    width: 90vw;
+    align-items: center;
+}
+
+.MultiImageButton {
+    padding-top: 2vh;
+    text-align: center;
+}
+
+.MultiImageLink {
+    text-decoration: none;
 }

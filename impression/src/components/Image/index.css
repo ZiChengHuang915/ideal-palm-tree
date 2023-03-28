@@ -1,0 +1,11 @@
+.defaultCardStyle {
+    outline: 0px solid green;
+}
+
+.correctCardStyle {
+    outline: 5px solid #C1E1C1;
+}
+
+.incorrectCardStyle {
+    outline: 5px solid pink;
+}
