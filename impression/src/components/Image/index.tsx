@@ -1,8 +1,8 @@
-import React, { lazy, useState, Suspense } from 'react';
-import './index.css';
+import { CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import { Suspense, useState } from 'react';
+import './index.css';
 
 function Image(props: { imageLink: any; correctImage?: boolean }) {
     const [cardStyle, setCardStyle] = useState('defaultCardStyle');

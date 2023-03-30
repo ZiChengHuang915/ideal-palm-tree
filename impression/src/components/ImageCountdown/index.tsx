@@ -1,10 +1,9 @@
-import React from 'react';
-import './index.css';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import Image from '../Image';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { duration } from '@mui/material';
+import Image from '../Image';
+import './index.css';
 
 function ImageCountdown(props: { duration: number; imageLink: string }) {
     const [timeLeft, setTimeLeft] = React.useState(props.duration);

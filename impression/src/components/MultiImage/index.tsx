@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
 
-import Stack from '@mui/material/Stack';
-import Image from '../Image';
-import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import { Link } from 'react-router-dom';
+import Image from '../Image';
 
 function MultiImage(props: { imageLink: string; prompt: string; apiKey: string }) {
     const [correctImageNum, setCorrectImageNum] = useState(0);

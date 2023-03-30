@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Start from './components/Start';
 import Describe from './components/Describe';
-import MultiImage from './components/MultiImage';
-import Timer from './components/Timer';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ImageCountdown from './components/ImageCountdown';
+import MultiImage from './components/MultiImage';
+import Start from './components/Start';
+import Timer from './components/Timer';
 import images from './registry.json';
 
 function App() {
