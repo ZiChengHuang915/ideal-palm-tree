@@ -2,23 +2,15 @@ import React from 'react';
 import './index.css';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import CircularProgress, {
-    CircularProgressProps,
-} from '@mui/material/CircularProgress';
+import CircularProgress, { CircularProgressProps } from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
-function CircularProgressWithLabel(
-    props: CircularProgressProps & { value: number; duration: number }
-) {
+function CircularProgressWithLabel(props: CircularProgressProps & { value: number; duration: number }) {
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-            <CircularProgress
-                variant="determinate"
-                {...props}
-                style={{ height: '150px', width: '150px' }}
-            />
+            <CircularProgress variant="determinate" {...props} style={{ height: '150px', width: '150px' }} />
             <Box
                 sx={{
                     top: 0,
@@ -29,13 +21,8 @@ function CircularProgressWithLabel(
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                }}
-            >
-                <Typography
-                    variant="h3"
-                    component="div"
-                    color="text.primary"
-                >{`${
+                }}>
+                <Typography variant="h3" component="div" color="text.primary">{`${
                     props.duration - (props.duration * props.value) / 100
                 }s`}</Typography>
             </Box>
@@ -54,9 +41,7 @@ function Timer(props: { duration: number; redirectLink: any }) {
         }
 
         const timer = setInterval(() => {
-            setProgress(prevProgress =>
-                prevProgress >= 100 ? 100 : prevProgress + 100 / props.duration
-            );
+            setProgress(prevProgress => (prevProgress >= 100 ? 100 : prevProgress + 100 / props.duration));
         }, 1000);
         return () => {
             clearInterval(timer);
@@ -65,10 +50,7 @@ function Timer(props: { duration: number; redirectLink: any }) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CircularProgressWithLabel
-                value={progress}
-                duration={props.duration}
-            />
+            <CircularProgressWithLabel value={progress} duration={props.duration} />
         </Box>
     );
 }

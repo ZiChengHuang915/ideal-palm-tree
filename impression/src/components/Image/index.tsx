@@ -10,10 +10,7 @@ function Image(props: { imageLink: any; correctImage?: boolean }) {
     return (
         <Suspense fallback={<div>Hi, This page is Loading...</div>}>
             {props.imageLink && (
-                <Card
-                    className={cardStyle}
-                    sx={{ minWidth: '15vw', maxWidth: '15vw' }}
-                >
+                <Card className={cardStyle} sx={{ minWidth: '15vw', maxWidth: '15vw' }}>
                     <CardActionArea
                         onClick={() => {
                             setCardStyle(
@@ -23,14 +20,8 @@ function Image(props: { imageLink: any; correctImage?: boolean }) {
                                     ? 'incorrectCardStyle'
                                     : 'defaultCardStyle'
                             );
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height="100%"
-                            src={props.imageLink}
-                            alt="someone cool"
-                        />
+                        }}>
+                        <CardMedia component="img" height="100%" src={props.imageLink} alt="someone cool" />
                     </CardActionArea>
                 </Card>
             )}

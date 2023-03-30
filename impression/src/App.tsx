@@ -32,9 +32,7 @@ function App() {
     };
 
     useEffect(() => {
-        var imageNum = Math.floor(
-            Math.random() * parseInt(images['numEntries'])
-        ).toString();
+        var imageNum = Math.floor(Math.random() * parseInt(images['numEntries'])).toString();
         setInitialImageLink(images[imageNum as keyof object][0]);
         setSelectImageLink(images[imageNum as keyof object][1]);
         console.log(imageNum);
@@ -47,42 +45,18 @@ function App() {
                     <Route path="/" element={<Start />} />
                     <Route
                         path="/initial"
-                        element={
-                            <ImageCountdown
-                                duration={5}
-                                imageLink={
-                                    initialImageLink as unknown as string
-                                }
-                            />
-                        }
+                        element={<ImageCountdown duration={5} imageLink={initialImageLink as unknown as string} />}
                     />
-                    <Route
-                        path="/storytime"
-                        element={
-                            <Timer duration={5} redirectLink={'/describe'} />
-                        }
-                    />
-                    <Route
-                        path="/describe"
-                        element={<Describe sendDescription={sendDescription} />}
-                    />
-                    <Route
-                        path="/generating"
-                        element={
-                            <Timer duration={10} redirectLink={'/select'} />
-                        }
-                    />
+                    <Route path="/storytime" element={<Timer duration={5} redirectLink={'/describe'} />} />
+                    <Route path="/describe" element={<Describe sendDescription={sendDescription} />} />
+                    <Route path="/generating" element={<Timer duration={10} redirectLink={'/select'} />} />
                     <Route
                         path="/select"
                         element={
                             <MultiImage
                                 imageLink={selectImageLink as unknown as string}
                                 prompt={description}
-                                apiKey={
-                                    process.env.REACT_APP_API_KEY
-                                        ? process.env.REACT_APP_API_KEY
-                                        : ''
-                                }
+                                apiKey={process.env.REACT_APP_API_KEY ? process.env.REACT_APP_API_KEY : ''}
                             />
                         }
                     />

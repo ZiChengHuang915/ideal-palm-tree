@@ -13,10 +13,7 @@ function Describe(props: { sendDescription: (txt: any) => void }) {
     return (
         <div className="DescribeDescribe">
             <Stack spacing={1}>
-                <p>
-                    Oh! What did we just see? Can you describe the individual in
-                    the image?
-                </p>
+                <p>Oh! What did we just see? Can you describe the individual in the image?</p>
                 <TextField
                     className="DescribeTextField"
                     id="outlined-basic"
