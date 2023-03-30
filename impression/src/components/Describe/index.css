@@ -1,16 +1,16 @@
 .DescribeDescribe {
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .DescribeTextField {
-  align-self: center;
-  width: 50vw;
+    align-self: center;
+    width: 50vw;
 }
 
 .DescribeLink {
-  text-decoration: none;
+    text-decoration: none;
 }
