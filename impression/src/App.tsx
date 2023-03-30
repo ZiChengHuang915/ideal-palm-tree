@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Start from './components/Start'
+import Start from './components/Start';
 import Describe from './components/Describe';
 import MultiImage from './components/MultiImage';
 import Timer from './components/Timer';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ImageCountdown from './components/ImageCountdown';
 import images from './registry.json';
-
 
 function App() {
   // TODO:
@@ -27,18 +22,19 @@ function App() {
   //   if so it is correct, otherwise guess until correct
   // - Add highlight styling for correctness to the results
   // - create a button after results displayed to circle back to the start page
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState('');
   const [initialImageLink, setInitialImageLink] = useState(null);
   const [selectImageLink, setSelectImageLink] = useState(null);
-
 
   const sendDescription = (txt: string) => {
     setDescription(txt);
     console.log(description);
-  }
+  };
 
   useEffect(() => {
-    var imageNum = Math.floor(Math.random() * parseInt(images["numEntries"])).toString();
+    var imageNum = Math.floor(
+      Math.random() * parseInt(images['numEntries'])
+    ).toString();
     setInitialImageLink(images[imageNum as keyof object][0]);
     setSelectImageLink(images[imageNum as keyof object][1]);
     console.log(imageNum);
@@ -49,11 +45,41 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/initial" element={<ImageCountdown duration={5} imageLink={initialImageLink as unknown as string}/>} />
-          <Route path="/storytime" element={<Timer duration={5} redirectLink={"/describe"}/>} />
-          <Route path="/describe" element={<Describe sendDescription={sendDescription}/>} />
-          <Route path="/generating" element={<Timer duration={10} redirectLink={"/select"}/>} />
-          <Route path="/select" element={<MultiImage imageLink={selectImageLink as unknown as string} prompt={description} apiKey={process.env.REACT_APP_API_KEY ? process.env.REACT_APP_API_KEY : ""} />} />
+          <Route
+            path="/initial"
+            element={
+              <ImageCountdown
+                duration={5}
+                imageLink={initialImageLink as unknown as string}
+              />
+            }
+          />
+          <Route
+            path="/storytime"
+            element={<Timer duration={5} redirectLink={'/describe'} />}
+          />
+          <Route
+            path="/describe"
+            element={<Describe sendDescription={sendDescription} />}
+          />
+          <Route
+            path="/generating"
+            element={<Timer duration={10} redirectLink={'/select'} />}
+          />
+          <Route
+            path="/select"
+            element={
+              <MultiImage
+                imageLink={selectImageLink as unknown as string}
+                prompt={description}
+                apiKey={
+                  process.env.REACT_APP_API_KEY
+                    ? process.env.REACT_APP_API_KEY
+                    : ''
+                }
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>
@@ -61,4 +87,3 @@ function App() {
 }
 
 export default App;
-
